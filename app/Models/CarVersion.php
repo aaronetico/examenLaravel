@@ -17,13 +17,13 @@ class CarVersion extends Model
 
     protected $fillable = ['car_year_id', 'name'];
     public $timestamps = false;
-
+    //Vienen del año
     public function carYear(): BelongsTo
     {
         return $this->belongsTo(CarYear::class);
     }
 
-
+    //Redirigirán a las piezas (tiene muchas piezas).
     public function parts(): HasMany
     {
         return $this->hasMany(Part::class);

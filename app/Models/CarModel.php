@@ -16,13 +16,13 @@ class CarModel extends Model
     public $timestamps = false;
     protected $fillable = ['brand_id', 'name'];
 
-
+    //Vienen de marca.
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);
     }
 
-
+    //Los modelos redirigirán a años
     public function years()
     {
         return $this->hasMany(CarYear::class);

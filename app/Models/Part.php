@@ -16,11 +16,12 @@ class Part extends Model
     public $timestamps = false;
     protected $fillable = ['car_version_id', 'name', 'sku', 'description', 'price', 'stock', 'agotado'];
 
-
+    //Viene de versiones
     public function carVersion(): BelongsTo
     {
         return $this->belongsTo(CarVersion::class);
     }
+
     public function cartItems()
     {
         return $this->hasMany(CartItem::class);

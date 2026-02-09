@@ -14,7 +14,7 @@ class BrandFactory extends Factory
 
 
     public function definition():array
-    {
+    { //IMPORTANTE : Asegurar que el nombre no se repita o da error.
         return [
             'name' => $this->faker->unique()->company(),
         ];

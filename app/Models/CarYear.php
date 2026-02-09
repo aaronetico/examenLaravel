@@ -18,12 +18,13 @@ class CarYear extends Model
     protected $fillable = ['car_model_id', 'year'];
 
     public $timestamps = false;
+    //Viene de un modelo
     public function carModel(): BelongsTo
     {
         return $this->belongsTo(CarModel::class);
     }
 
-
+    //Tiene N versiones
     public function versions(): HasMany
     {
         return $this->hasMany(CarVersion::class);

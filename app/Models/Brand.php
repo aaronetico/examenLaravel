@@ -16,7 +16,7 @@ class Brand extends Model
 
     protected $fillable = ['name'];
     public $timestamps = false;
-
+    //Tiene N modelos
     public function models(): HasMany
     {
         return $this->hasMany(CarModel::class);

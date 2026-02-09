@@ -15,7 +15,7 @@ class BrandSeeder extends Seeder
             return;
         }
 
-        $lines = array_map('trim', file($file));
+        $lines = array_map('trim', file($file));//Transformar el csv en algo legible
         array_shift($lines); // quitar cabecera "name"
 
         foreach ($lines as $line) {

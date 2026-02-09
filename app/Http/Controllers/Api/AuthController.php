@@ -34,7 +34,7 @@ class AuthController extends Controller
             'user' => $user->only('id','name','email'),
         ]);
     }
-
+    //Eso es para devolver los datos cuando se autentifica un usuario
     public function me(Request $request)
     {
         return response()->json([
