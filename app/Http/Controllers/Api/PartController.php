@@ -12,8 +12,11 @@ class PartController extends Controller
 {
     public function index()
     {
-        return response()->json(Part::all());
+        return response()->json(
+            Part::orderBy('id')->get()
+        );
     }
+
 
     public function store(StorePartRequest $request)
     {
@@ -42,6 +45,10 @@ class PartController extends Controller
     public function versions($versionId)
     {
         $version = CarVersion::findOrFail($versionId);
-        return response()->json($version->parts);
+
+        return response()->json(
+            $version->parts()->orderBy('id')->get()
+        );
     }
+
 }
