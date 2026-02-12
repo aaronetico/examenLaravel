@@ -18,10 +18,10 @@ class CarYearSeeder extends Seeder
             return;
         }
 
-        // Leer el CSV y parsear cada línea
+        //Esto lee el CSV y parsea cada línea
         $lines = array_map('str_getcsv', file($file));
 
-        // Quitar la cabecera "model,year"
+        //Prepara los datos por ej quita las cabeceras etc.
         $header = array_shift($lines);
 
         foreach ($lines as $row) {
@@ -29,7 +29,7 @@ class CarYearSeeder extends Seeder
             $modelName = trim($row[0]);
             $year = (int) trim($row[1]); // clave: convertir a entero
 
-            // Buscar el modelo en la base de datos
+            // Buscar el modelo en la base de datos todo esto es para que coincida con los demás csvs
             $carModel = CarModel::where('name', $modelName)->first();
 
             if (!$carModel) {

@@ -13,21 +13,21 @@ class RoleSeeder extends Seeder
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        // Crear roles
+        //Crear roles
         $admin = Role::firstOrCreate(['name' => 'admin']);
         $empleado = Role::firstOrCreate(['name' => 'empleado']);
         $cliente = Role::firstOrCreate(['name' => 'cliente']);
-
-        // ADMIN → TODO
+        //DAR PERMISOS
+        //ADMIN → TODO
         $admin->givePermissionTo(Permission::all());
 
-        // EMPLEADO → SOLO PARTS
+        //EMPLEADO → SOLO PARTS
         $empleado->givePermissionTo([
             'crear parts',
             'editar parts',
             'borrar parts'
         ]);
 
-        // CLIENTE → sin permisos especiales (solo ver público)
+        //CLIENTE sin permisos especiales (solo ver público)
     }
 }
