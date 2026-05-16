@@ -51,4 +51,3 @@ services:
 
       - key: QUEUE_CONNECTION
         value: sync
-        value: sync
