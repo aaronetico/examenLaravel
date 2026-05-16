@@ -24,3 +24,4 @@ RUN chmod +x /usr/local/bin/render-start.sh
 EXPOSE 10000
 
 CMD ["/usr/local/bin/render-start.sh"]
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=10000
