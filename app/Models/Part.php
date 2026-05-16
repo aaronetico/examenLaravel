@@ -14,7 +14,7 @@ class Part extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = ['car_version_id', 'name', 'sku', 'description', 'price', 'stock', 'agotado'];
+    protected $fillable = ['car_version_id', 'name', 'sku', 'description', 'image_url', 'price', 'stock', 'agotado'];
 
     //Viene de versiones
     public function carVersion(): BelongsTo

@@ -14,7 +14,7 @@ class StoreBrandRequest extends FormRequest
 
     public function rules(): array
     {
-        return [            //Controlar que no haya más con el mismo nombre
+        return [   //Controlar que no haya más con el mismo nombre
             'name' => 'required|string|max:255|unique:brands,name',
         ];
     }
