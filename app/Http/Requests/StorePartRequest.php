@@ -18,6 +18,7 @@ class StorePartRequest extends FormRequest
             'name' => 'required|string|max:255',
             'sku' => 'nullable|string|max:255|unique:parts,sku',
             'description' => 'nullable|string',
+            'image_url' => 'nullable|url|max:500',
             'price' => 'nullable|numeric',
             'stock' => 'nullable|integer',
             'agotado' => 'nullable|boolean',

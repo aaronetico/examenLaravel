@@ -15,8 +15,12 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name',
+        'last_name',
         'email',
         'password',
+        'birth_date',
+        'country',
+        'city',
     ];
 
     protected $hidden = [
@@ -29,6 +33,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'birth_date' => 'date',
         ];
     }
     //Tiene 1 carrito

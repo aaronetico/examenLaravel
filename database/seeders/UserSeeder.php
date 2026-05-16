@@ -16,6 +16,10 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'password' => Hash::make('password123'),
+                'last_name' => 'Falcar',
+                'birth_date' => '1990-01-01',
+                'country' => 'España',
+                'city' => 'Madrid',
             ]
         );
         $admin->assignRole('admin');
@@ -26,6 +30,10 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Empleado',
                 'password' => Hash::make('password123'),
+                'last_name' => 'Taller',
+                'birth_date' => '1995-05-10',
+                'country' => 'España',
+                'city' => 'Valencia',
             ]
         );
         $empleado->assignRole('empleado');
@@ -36,6 +44,10 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Cliente',
                 'password' => Hash::make('password123'),
+                'last_name' => 'Demo',
+                'birth_date' => '2000-08-20',
+                'country' => 'España',
+                'city' => 'Sevilla',
             ]
         );
         $cliente->assignRole('cliente');

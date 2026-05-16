@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\PartController;
 
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('brands', BrandController::class);
@@ -55,6 +56,8 @@ Route::get('versions/{version}/parts', [PartController::class, 'versions']);
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/me', [AuthController::class, 'me']);
+    Route::put('/me', [AuthController::class, 'updateMe']);
 
     //BRANDS
     Route::post('brands', [BrandController::class, 'store'])->middleware('can:gestionar brands');
