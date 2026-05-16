@@ -11,7 +11,7 @@ return new class extends Migration {
     {
         Schema::create('car_years', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('car_model_id')->constrained('car_models')->onDelete('cascade');
+            $table->foreignId('car_model_id')->constrained('car_models')->onDelete('restrict');
             $table->smallInteger('year');
 
 
