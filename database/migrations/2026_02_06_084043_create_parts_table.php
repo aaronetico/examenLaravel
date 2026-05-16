@@ -11,7 +11,7 @@ return new class extends Migration {
     {
         Schema::create('parts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('car_version_id')->constrained('car_versions')->onDelete('cascade');
+            $table->foreignId('car_version_id')->constrained('car_versions')->onDelete('restrict');
             $table->string('name');
             $table->string('sku')->nullable()->unique();
             $table->text('description')->nullable();

@@ -25,7 +25,7 @@ class CarVersionSeeder extends Seeder
             $yearValue = (int) trim($row[1]); // <-- convertir a entero
             $versionName = trim($row[2]);
 
-            // Buscar CarYear correcto
+            // Buscar CarYear correcto todo esto es para que coincida con los demás csvs
             $carYear = CarYear::whereHas('carModel', function($q) use ($modelName) {
                 $q->where('name', $modelName);
             })->where('year', $yearValue)->first();
