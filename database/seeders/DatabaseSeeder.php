@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             CarModelSeeder::class,
             CarYearSeeder::class,
             CarVersionSeeder::class,
-            FakeDataSeeder::class,
+            RealPartsSeeder::class,
             CartSeeder::class,
         ]);
     }

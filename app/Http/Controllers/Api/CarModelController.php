@@ -10,7 +10,7 @@ class CarModelController extends Controller
 {
     public function index()
     {
-        return CarModel::all();
+        return CarModel::orderBy('id')->get();
     }
 
     public function show(CarModel $model)
@@ -20,7 +20,7 @@ class CarModelController extends Controller
 
     public function byBrand($brandId)
     {
-        return CarModel::where('brand_id', $brandId)->get();
+        return CarModel::where('brand_id', $brandId)->orderBy('id')->get();
     }
 
     public function store(Request $request)
@@ -61,7 +61,7 @@ class CarModelController extends Controller
     public function years($modelId)
     {
         $model = CarModel::findOrFail($modelId);
-        return response()->json($model->years); // relación Model->carYears
+        return response()->json($model->years()->orderBy('id')->get());
     }
 
 }

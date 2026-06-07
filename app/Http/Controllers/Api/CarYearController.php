@@ -10,7 +10,7 @@ class CarYearController extends Controller
 {
     public function index()
     {
-        return CarYear::all();
+        return CarYear::orderBy('id')->get();
     }
 
     public function show(CarYear $year)
@@ -20,7 +20,7 @@ class CarYearController extends Controller
 
     public function byModel($modelId)
     {
-        return CarYear::where('car_model_id', $modelId)->get();
+        return CarYear::where('car_model_id', $modelId)->orderBy('id')->get();
     }
 
     public function store(Request $request)
@@ -61,7 +61,7 @@ class CarYearController extends Controller
     public function versions($yearId)
     {
         $year = CarYear::findOrFail($yearId);
-        return response()->json($year->versions); // relación Year->carVersions
+        return response()->json($year->versions()->orderBy('id')->get());
     }
 
 }

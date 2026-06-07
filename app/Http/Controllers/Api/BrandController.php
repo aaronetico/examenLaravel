@@ -11,7 +11,7 @@ class BrandController extends Controller
 {
     public function index()
     {
-        return response()->json(Brand::all());
+        return response()->json(Brand::orderBy('id')->get());
     }
 
     public function store(StoreBrandRequest $request)
@@ -41,7 +41,7 @@ class BrandController extends Controller
     public function models($brandId)
     {
         $brand = Brand::findOrFail($brandId);
-        return response()->json($brand->models); // asumiendo relación Brand->carModels
+        return response()->json($brand->models()->orderBy('id')->get());
     }
 
 }
