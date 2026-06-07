@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    // Busca o crea el carrito activo del usuario logueado
     private function getUserCart(): Cart
     {
         return Cart::firstOrCreate(
@@ -21,6 +22,7 @@ class CartController extends Controller
         );
     }
 
+    // Devuelve el carrito con sus líneas y piezas
     public function index()
     {
         $cart = $this->getUserCart()->load(['items.part']);
@@ -28,6 +30,7 @@ class CartController extends Controller
         return response()->json($cart);
     }
 
+    // Añade una pieza al carrito o incrementa su cantidad
     public function add(Request $request, Part $part)
     {
         $cart = $this->getUserCart();
@@ -52,6 +55,7 @@ class CartController extends Controller
         ]);
     }
 
+    // Quita una pieza del carrito del usuario
     public function remove(Part $part)
     {
         $cart = $this->getUserCart();

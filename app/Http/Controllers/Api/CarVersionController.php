@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class CarVersionController extends Controller
 {
+    // Devuelve todas las versiones de motor o acabado
     public function index()
     {
         return CarVersion::orderBy('id')->get();

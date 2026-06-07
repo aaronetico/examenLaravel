@@ -12,6 +12,7 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
+    // Registra un usuario nuevo y le asigna el rol cliente
     public function register(Request $request)
     {
         $data = $request->validate([
@@ -53,6 +54,7 @@ class AuthController extends Controller
         ], 201);
     }
 
+    // Comprueba email y contraseña y devuelve un token de acceso
     public function login(Request $request)
     {
         $request->validate([
@@ -82,6 +84,7 @@ class AuthController extends Controller
         ]);
     }
 
+    // Devuelve los datos del usuario autenticado
     public function me(Request $request)
     {
         $user = $request->user();
@@ -94,6 +97,7 @@ class AuthController extends Controller
         ]);
     }
 
+    // Permite editar el perfil del usuario logueado
     public function updateMe(Request $request)
     {
         $user = $request->user();
@@ -124,6 +128,7 @@ class AuthController extends Controller
         ]);
     }
 
+    // Invalida el token actual al cerrar sesión
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();

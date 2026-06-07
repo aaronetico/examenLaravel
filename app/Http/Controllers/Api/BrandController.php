@@ -9,11 +9,13 @@ use App\Http\Requests\UpdateBrandRequest;
 
 class BrandController extends Controller
 {
+    // Lista todas las marcas de coches
     public function index()
     {
         return response()->json(Brand::orderBy('id')->get());
     }
 
+    // Guarda una marca nueva en la base de datos
     public function store(StoreBrandRequest $request)
     {
         $brand = Brand::create($request->validated());

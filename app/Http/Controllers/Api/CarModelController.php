@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class CarModelController extends Controller
 {
+    // Devuelve todos los modelos de coches
     public function index()
     {
         return CarModel::orderBy('id')->get();

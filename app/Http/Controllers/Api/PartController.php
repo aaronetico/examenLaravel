@@ -10,6 +10,7 @@ use App\Http\Requests\UpdatePartRequest;
 
 class PartController extends Controller
 {
+    // Devuelve todas las piezas del catálogo
     public function index()
     {
         return response()->json(
@@ -18,23 +19,27 @@ class PartController extends Controller
     }
 
 
+    // Crea una pieza nueva en la base de datos
     public function store(StorePartRequest $request)
     {
         $part = Part::create($request->validated());
         return response()->json($part, 201);
     }
 
+    // Muestra una pieza concreta por su id
     public function show(Part $part)
     {
         return response()->json($part);
     }
 
+    // Actualiza los datos de una pieza existente
     public function update(UpdatePartRequest $request, Part $part)
     {
         $part->update($request->validated());
         return response()->json($part);
     }
 
+    // Borra una pieza del catálogo
     public function destroy(Part $part)
     {
         $part->delete();

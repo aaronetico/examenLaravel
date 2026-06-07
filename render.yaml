@@ -1,5 +1,4 @@
-# Blueprint para Render: API Laravel + Postgres.
-
+# Blueprint Render: despliega la API Laravel con PostgreSQL
 databases:
   - name: dwc-postgres
     plan: free
@@ -14,7 +13,7 @@ services:
     region: oregon
     dockerfilePath: ./Dockerfile
     dockerContext: .
-    healthCheckPath: /up
+    healthCheckPath: /up  # Comprueba que Laravel responde
 
     envVars:
       - key: APP_ENV
@@ -24,10 +23,10 @@ services:
         value: "false"
 
       - key: APP_URL
-        sync: false
+        sync: false  # URL pública del servicio en Render
 
       - key: APP_KEY
-        sync: false
+        sync: false  # Clave de cifrado de Laravel
 
       - key: LOG_CHANNEL
         value: stderr
@@ -41,7 +40,7 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: dwc-postgres
-          property: connectionString
+          property: connectionString  # Conexión automática a Postgres
 
       - key: SESSION_DRIVER
         value: file

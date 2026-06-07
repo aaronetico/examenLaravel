@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class CarYearController extends Controller
 {
+    // Lista todos los años disponibles en el catálogo
     public function index()
     {
         return CarYear::orderBy('id')->get();

@@ -1,3 +1,4 @@
+# Imagen Docker para desplegar Laravel en Render
 FROM php:8.4-cli-bookworm
 
 RUN apt-get update \
@@ -23,5 +24,5 @@ RUN chmod +x /usr/local/bin/render-start.sh
 
 EXPOSE 10000
 
-CMD ["/usr/local/bin/render-start.sh"]
+CMD ["/usr/local/bin/render-start.sh"]  # Migra, seedea y arranca artisan serve
 
