@@ -1,5 +1,5 @@
 # Imagen Docker para desplegar Laravel en Render
-FROM php:8.4-cli-bookworm
+FROM 
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends libpq-dev unzip \
