@@ -9,7 +9,7 @@ php artisan config:cache
 php artisan route:cache
 
 # 1. Borra tablas, migra y mete los seeds 
-php artisan migrate:fresh --seed --force
+php artisan migrate --force
 
 # 2. Arranca el servidor usando el puerto dinámico de Render 
 exec php artisan serve --host=0.0.0.0 --port="${PORT:-10000}"
