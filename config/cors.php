@@ -2,7 +2,9 @@
 
 $origins = env('CORS_ALLOWED_ORIGINS');
 
-$allowedOrigins = array_values(array_filter(array_map('trim', explode(',', (string) $origins))));
+$allowedOrigins = ($origins === null || trim((string) $origins) === '')
+    ? ['*']
+    : array_values(array_filter(array_map('trim', explode(',', (string) $origins))));
 
 return [
 
